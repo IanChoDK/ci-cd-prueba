@@ -8,11 +8,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Configurar clave SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
+      - name: Configurar SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
 
       - name: Conectarse al servidor y hacer git pull
         run: |
@@ -20,4 +19,3 @@ jobs:
             cd ~/lemp-sites/ian_ibanez &&
             git pull origin main
           "
-
