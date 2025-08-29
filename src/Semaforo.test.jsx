@@ -17,11 +17,11 @@ test('cambia el color del círculo al hacer click en los botones', () => {
   const verdeBtn = screen.getByText('Verde');
 
   fireEvent.click(amarilloBtn);
-  expect(circle).toHaveStyle('background-color: yellow');
+  expect(circle).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
 
   fireEvent.click(verdeBtn);
-  expect(circle).toHaveStyle('background-color: green');
+  expect(circle).toHaveStyle({ backgroundColor: 'rgb(0, 128, 0)' });
 
   fireEvent.click(rojoBtn);
-  expect(circle).toHaveStyle('background-color: red');
+  expect(circle).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)' });
 });
