@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "test": "vitest"
   },
@@ -8,5 +9,3 @@
     "vitest": "^3.2.4"
   }
 }
-
-
