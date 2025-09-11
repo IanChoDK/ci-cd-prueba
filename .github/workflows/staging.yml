@@ -1,0 +1,22 @@
+name: CD - Deploy Staging
+
+on:
+  push:
+    branches: [ develop ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Configurar SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_KEY }}
+
+      - name: Deploy a Staging
+        run: |
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "
+            cd ~/lemp-sites/ian_ibanez/staging &&
+            git fetch origin develop &&
+            git reset --hard origin/develop
+          "

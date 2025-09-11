@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <div>
-      <h1>Semáforo</h1> 
+      <h1>Semáf0r0</h1> 
       <Semaforo/>
     </div>
       
